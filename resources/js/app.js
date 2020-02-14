@@ -3,19 +3,11 @@ require('./bootstrap');
 /////////////////////////////////////////////////////////////////////////////
 // 3RD PARTY LIBRARY IMPORTS
 /////////////////////////////////////////////////////////////////////////////
-import Buttondisabler from 'buttondisabler';
-
-// disable submit button after clicked once to avoid duplicatation
-new Buttondisabler({
-    timeout: 5000,
-    text: 'Wait...'
-});
-
-window.Noty = require('noty');
-window.mojs = require('mo-js');
-window.html2canvas = require('html2canvas');
-
+require('noty');
+require('mo-js');
+require('html2canvas');
 require('summernote');
+/////////////////////////////////////////////////////////////////////////////
 
 // our custom js code
 require('./custom');
