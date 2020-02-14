@@ -14,7 +14,7 @@
                             </div>
                         @endif
 
-                        @livewire('bookmark-create-form')
+                        You are logged in!
 
                     </div>
                 </div>
