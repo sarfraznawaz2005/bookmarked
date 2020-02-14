@@ -16,6 +16,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     @stack('css')
+
+    @livewireStyles
 </head>
 <body>
 <div id="app">
@@ -87,5 +89,8 @@
 
 @stack('js')
 
+@include('noty::view')
+
+@livewireScripts
 </body>
 </html>
