@@ -1,0 +1,26 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+/////////////////////////////////////////////////////////////////////////////
+// CUSTOM IMPORTS START
+/////////////////////////////////////////////////////////////////////////////
+
+// FontAwesome
+@import "~font-awesome/css/font-awesome.min.css";
+
+// Animate CSS
+@import "~animate.css";
+
+// Summernote
+@import "~summernote/dist/summernote-bs4.css";
+
+// noty
+@import "~noty/src/noty.scss";
+@import "~noty/src/themes/sunset";
+@import "~noty/src/themes/metroui";
