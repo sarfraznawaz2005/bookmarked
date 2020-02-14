@@ -26,6 +26,7 @@
         "animate.css": "^3.7.2",
         "buttondisabler": "^1.0.9",
         "font-awesome": "^4.7.0",
+        "html2canvas": "^1.0.0-rc.5",
         "mo-js": "^0.288.2",
         "noty": "^3.2.0-beta",
         "summernote": "^0.8.15"

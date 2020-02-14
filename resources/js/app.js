@@ -1,5 +1,4 @@
 require('./bootstrap');
-require('./custom');
 
 /////////////////////////////////////////////////////////////////////////////
 // 3RD PARTY LIBRARY IMPORTS
@@ -14,6 +13,9 @@ new Buttondisabler({
 
 window.Noty = require('noty');
 window.mojs = require('mo-js');
+window.html2canvas = require('html2canvas');
 
 require('summernote');
 
+// our custom js code
+require('./custom');
