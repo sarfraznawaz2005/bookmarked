@@ -98,7 +98,9 @@
 
 <div class="modal" id="create-bookmark-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
-        <form action="#" method="post">
+        <form action="{{route('bookmarks.store')}}" method="post">
+            @csrf
+
             <div class="modal-content">
                 <div class="modal-header bg-success text-white">
                     <h5 class="modal-title"><i class="fa fa-plus-square-o"></i> Add Bookmark</h5>
@@ -109,11 +111,11 @@
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <input type="url" placeholder="URL" name="url" class="form-control">
+                        <input required type="url" placeholder="URL" name="url" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" placeholder="Title" name="title" class="form-control">
+                        <input required type="text" placeholder="Title" name="title" class="form-control">
                     </div>
 
                     <div class="form-group">
