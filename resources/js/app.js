@@ -6,7 +6,6 @@ require('./bootstrap');
 window.Noty = require('noty');
 
 require('mo-js');
-require('html2canvas');
 require('select2');
 /////////////////////////////////////////////////////////////////////////////
 
