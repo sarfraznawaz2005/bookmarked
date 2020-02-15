@@ -3,20 +3,21 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Bookmark extends Model
 {
     protected $fillable = [
         'user_id',
+        'folder_id',
         'title',
         'description',
         'url',
-        'thumbnail',
         'read',
     ];
 
-    public function tags()
+    public function folder(): BelongsTo
     {
-        return $this->hasMany(Tag::class);
+        return $this->belongsTo(Folder::class);
     }
 }

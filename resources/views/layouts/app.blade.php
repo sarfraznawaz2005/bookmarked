@@ -41,7 +41,7 @@
                             </button>
                         </li>
 
-                        <li class="nav-item"><a class="btn btn-light" href="/">Tags</a></li>
+                        <li class="nav-item"><a class="btn btn-light" href="{{route('folders.index')}}">Folders</a></li>
                         <li class="nav-item"><a class="btn btn-light" href="/">Settings</a></li>
                     @endauth
                 </ul>
@@ -119,9 +119,8 @@
                     </div>
 
                     <div class="form-group">
-                        <select name="tags[]" class="select2 tags form-control" multiple>
-                            <option value="test">test</option>
-                            <option value="foo">foo</option>
+                        <select name="folder_id" class="select2 tags form-control">
+                            <option value="misc">Misc</option>
                         </select>
                     </div>
 

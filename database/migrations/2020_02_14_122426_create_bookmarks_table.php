@@ -16,10 +16,10 @@ class CreateBookmarksTable extends Migration
         Schema::create('bookmarks', static function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned()->index();
+            $table->bigInteger('folder_id')->unsigned()->index();
             $table->string('title');
             $table->string('description')->nullable();
             $table->text('url');
-            $table->string('thumbnail')->nullable();
             $table->boolean('read')->default('0');
             $table->timestamps();
 
