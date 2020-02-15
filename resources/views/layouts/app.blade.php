@@ -41,7 +41,7 @@
                             </button>
                         </li>
 
-                        <li class="nav-item"><a class="btn btn-light" href="{{route('folders.index')}}">Folders</a></li>
+                        <li class="nav-item"><a class="btn btn-light {{activeLink('folders.index')}}" href="{{route('folders.index')}}">Folders</a></li>
                         <li class="nav-item"><a class="btn btn-light" href="/">Settings</a></li>
                     @endauth
                 </ul>
