@@ -11,15 +11,12 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    @stack('styles')
-
-    @livewireStyles
+    @stack('css')
 </head>
 <body>
+
 <div id="app">
 
     <nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -39,7 +36,9 @@
                 <ul class="navbar-nav mr-auto">
                     @auth
                         <li class="nav-item">
-                            <a class="btn btn-success" href="#">Add Bookmark</a>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#create-bookmark-modal">Add
+                                Bookmark
+                            </button>
                         </li>
 
                         <li class="nav-item"><a class="btn btn-light" href="/">Tags</a></li>
@@ -79,16 +78,74 @@
     </nav>
 
     <main class="py-4">
+
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
+                </button>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         @yield('content')
     </main>
 
 </div>
 
+<div class="modal" id="create-bookmark-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <form action="#" method="post">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title"><i class="fa fa-plus-square-o"></i> Add Bookmark</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <input type="url" placeholder="URL" name="url" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Title" name="title" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <select name="tags[]" class="select2 tags form-control" multiple>
+                            <option value="test">test</option>
+                            <option value="foo">foo</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                            <textarea placeholder="Description"
+                                      name="description"
+                                      cols="30"
+                                      rows="3"
+                                      class="form-control">
+                            </textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save Bookmark</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="{{ asset('js/app.js') }}"></script>
+@stack('js')
+
 @include('noty::view')
-
-@livewireScripts
-
-@stack('scripts')
 
 </body>
 </html>

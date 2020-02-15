@@ -7,3 +7,6 @@ new Buttondisabler({
     timeout: 5000,
     text: 'Wait...'
 });
+
+$('.select2, select').select2();
+$('.tags').select2({"tags": true});

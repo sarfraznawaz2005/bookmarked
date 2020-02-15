@@ -10,18 +10,15 @@
 /////////////////////////////////////////////////////////////////////////////
 // CUSTOM IMPORTS START
 /////////////////////////////////////////////////////////////////////////////
-@import "custom.css";
 
 // FontAwesome
 @import "~font-awesome/css/font-awesome.min.css";
-
-// Animate CSS
-@import "~animate.css";
-
-// Summernote
-@import "~summernote/dist/summernote-bs4.css";
 
 // noty
 @import "~noty/src/noty.scss";
 @import "~noty/src/themes/sunset";
 @import "~noty/src/themes/metroui";
+
+@import "~select2/dist/css/select2.min.css";
+
+@import "custom.css";

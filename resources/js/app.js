@@ -7,7 +7,7 @@ window.Noty = require('noty');
 
 require('mo-js');
 require('html2canvas');
-require('summernote');
+require('select2');
 /////////////////////////////////////////////////////////////////////////////
 
 // our custom js code
