@@ -1,6 +1,6 @@
 // custom js
 
-// disable submit button after clicked once to avoid duplicatation
+// disable submit button after clicked once to avoid duplication
 import Buttondisabler from "buttondisabler";
 
 new Buttondisabler({
