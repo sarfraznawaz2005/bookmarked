@@ -33,3 +33,12 @@ ol, ul, dl {
 .select2-container--default .select2-selection--multiple {
     border: 1px solid #ced4da !important;
 }
+
+.card-header.tabbed {
+    padding: 0.50rem 1rem 0 1rem !important;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: #fff !important;
+    border-color: #dee2e6 #dee2e6 #fff #dee2e6 !important;
+}

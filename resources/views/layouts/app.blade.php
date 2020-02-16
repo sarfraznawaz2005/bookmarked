@@ -35,12 +35,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     @auth
-                        <li class="nav-item">
-                            <button class="btn btn-success" data-toggle="modal" data-target="#create-bookmark-modal">Add
-                                Bookmark
-                            </button>
-                        </li>
-
+                        <li class="nav-item"><a class="btn btn-light {{activeLink('home')}}" href="{{route('home', '/')}}">Home</a></li>
                         <li class="nav-item"><a class="btn btn-light {{activeLink('folders.index')}}" href="{{route('folders.index')}}">Folders</a></li>
                         <li class="nav-item"><a class="btn btn-light" href="/">Settings</a></li>
                     @endauth
@@ -59,6 +54,13 @@
                             </li>
                         @endif
                     @else
+
+                        <li class="nav-item">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#create-bookmark-modal">
+                                Add Bookmark
+                            </button>
+                        </li>
+
                         <li class="nav-item">
                             <a class="btn btn-light" href="{{ route('logout') }}"
                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
