@@ -3,8 +3,6 @@
 namespace App\Http\Actions\Bookmarks;
 
 use App\Bookmark;
-use App\Folder;
-use App\Tag;
 use Illuminate\Http\Request;
 use Sarfraznawaz2005\Actions\Action;
 
@@ -16,12 +14,16 @@ class StoreBookmark extends Action
     protected $rules = [
         'url' => 'required',
         'title' => 'required',
+        'folder_id' => 'required',
     ];
 
     public function transform(Request $request): array
     {
         return [
-            'user_id' => $request->user()->id
+            'url' => trim(rtrim($request->url, '/')),
+            'user_id' => $request->user()->id,
+            'read' => $request->has('read') ? '1' : '0',
+            'title' => normalizTitle($request->title),
         ];
     }
 
@@ -33,10 +35,28 @@ class StoreBookmark extends Action
      */
     public function __invoke(Bookmark $bookmark)
     {
+        if ($this->isBookmarked()) {
+            return flashBackErrors(['This page is already bookmarked.']);
+        }
+
         if ($this->create($bookmark)) {
             return flashBack(static::MESSAGE_CREATE, 'success');
         }
 
         return flashBackErrors($bookmark->errors());
+    }
+
+    public function isBookmarked(): bool
+    {
+        $bookmark = Bookmark
+            ::where('url', \request()->url)
+            ->where('user_id', \request()->user()->id)
+            ->first();
+
+        if ($bookmark) {
+            return true;
+        }
+
+        return false;
     }
 }

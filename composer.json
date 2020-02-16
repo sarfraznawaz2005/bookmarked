@@ -8,6 +8,8 @@
   ],
   "license": "MIT",
   "require": {
+    "ext-dom": "*",
+    "ext-libxml": "*",
     "php": "^7.2",
     "fideloper/proxy": "^4.0",
     "laravel/framework": "^6.2",

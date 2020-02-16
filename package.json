@@ -24,9 +24,12 @@
     },
     "dependencies": {
         "buttondisabler": "^1.0.9",
+        "datatables.net": "^1.10.20",
+        "datatables.net-bs4": "^1.10.20",
         "font-awesome": "^4.7.0",
         "mo-js": "^0.288.2",
         "noty": "^3.2.0-beta",
-        "select2": "^4.0.13"
+        "select2": "^4.0.13",
+        "sweetalert2": "^9.7.2"
     }
 }

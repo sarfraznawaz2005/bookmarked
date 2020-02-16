@@ -35,15 +35,16 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     @auth
-                        <li class="nav-item"><a class="btn btn-light {{activeLink('home')}}" href="{{route('home', '/')}}">Home</a></li>
-                        <li class="nav-item"><a class="btn btn-light {{activeLink('folders.index')}}" href="{{route('folders.index')}}">Folders</a></li>
+                        <li class="nav-item"><a class="btn btn-light {{activeLink('home')}}"
+                                                href="{{route('home', '/')}}">Home</a></li>
+                        <li class="nav-item"><a class="btn btn-light {{activeLink('folders.index')}}"
+                                                href="{{route('folders.index')}}">Folders</a></li>
                         <li class="nav-item"><a class="btn btn-light" href="/">Settings</a></li>
                     @endauth
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
                             <a class="btn btn-light" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -55,10 +56,11 @@
                         @endif
                     @else
 
-                        <li class="nav-item">
-                            <button class="btn btn-success" data-toggle="modal" data-target="#create-bookmark-modal">
-                                Add Bookmark
-                            </button>
+                        <li style="border: none;">
+                            <form class="form-inline mt-2 mt-md-0">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search Bookmarks"
+                                       aria-label="Search">
+                            </form>
                         </li>
 
                         <li class="nav-item">
@@ -80,71 +82,32 @@
     </nav>
 
     <main class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
+                            </button>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
-                </button>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+                    @yield('content')
+
+                </div>
             </div>
-        @endif
-
-        @yield('content')
+        </div>
     </main>
 
 </div>
 
-<div class="modal" id="create-bookmark-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <form action="{{route('bookmarks.store')}}" method="post">
-            @csrf
-
-            <div class="modal-content">
-                <div class="modal-header bg-success text-white">
-                    <h5 class="modal-title"><i class="fa fa-plus-square-o"></i> Add Bookmark</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <input required type="url" placeholder="URL" name="url" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <input required type="text" placeholder="Title" name="title" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <select name="folder_id" class="select2 tags form-control">
-                            <option value="misc">Misc</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                            <textarea placeholder="Description"
-                                      name="description"
-                                      cols="30"
-                                      rows="3"
-                                      class="form-control"></textarea>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Save</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
 <script src="{{ asset('js/app.js') }}"></script>
+
 @stack('js')
 
 @include('noty::view')

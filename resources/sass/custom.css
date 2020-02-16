@@ -42,3 +42,34 @@ ol, ul, dl {
     background-color: #fff !important;
     border-color: #dee2e6 #dee2e6 #fff #dee2e6 !important;
 }
+
+.table thead {
+    background: #DAE0E5;
+    color: #666;
+    font-size: .90rem;
+}
+
+.table th:last-child {
+    text-align: center;
+}
+
+.table th, .table td {
+    padding: 0.40rem !important;
+    vertical-align: middle !important;
+    border-top: 1px solid #dee2e6 !important;
+}
+
+.table-hover tbody tr {
+    background-color: #fff !important;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #edf1f3 !important;
+}
+
+.dataTables_wrapper .dataTables_processing {
+    background-color: #a2e5b1;
+    color: #212529;
+    position: absolute !important;
+    top: 1% !important;
+}

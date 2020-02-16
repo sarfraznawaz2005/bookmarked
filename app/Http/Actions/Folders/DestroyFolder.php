@@ -2,22 +2,17 @@
 
 namespace App\Http\Actions\Folders;
 
+use App\Folder;
 use Sarfraznawaz2005\Actions\Action;
 
 class DestroyFolder extends Action
 {
-    /**
-     * Define any validation rules.
-     */
-    protected $rules = [];
-
-    /**
-     * Perform the action.
-     *
-     * @return mixed
-     */
-    public function __invoke()
+    public function __invoke(Folder $folder)
     {
-        // code
+        if ($this->delete($folder)) {
+            return flashBack(static::MESSAGE_DELETE, 'success');
+        }
+
+        return flashBackErrors($folder->errors());
     }
 }

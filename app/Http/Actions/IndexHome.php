@@ -2,13 +2,15 @@
 
 namespace App\Http\Actions;
 
-use App\Bookmark;
+use App\Folder;
 use Sarfraznawaz2005\Actions\Action;
 
 class IndexHome extends Action
 {
-    public function __invoke(Bookmark $bookmark)
+    public function __invoke(Folder $folder)
     {
-        return view('home');
+        $folders = $folder->where('user_id', auth()->user()->id)->get();
+
+        return view('home', compact('folders'));
     }
 }
