@@ -29,7 +29,7 @@
                     {"width": "15%", "bSortable": false, "targets": -1},
                     {"width": "20%", "targets": -2}
                 ],
-                "order": [3, 'asc'],
+                "order": [2, 'desc'],
                 "rowCallback": function (row, data) {
                     var $read = $('<div/>').html(data.Read);
 

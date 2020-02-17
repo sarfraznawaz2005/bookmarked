@@ -9,7 +9,7 @@ class IndexHome extends Action
 {
     public function __invoke(Folder $folder)
     {
-        $folders = $folder->where('user_id', auth()->user()->id)->get();
+        $folders = $folder->where('user_id', auth()->user()->id)->get()->sortBy('name');
 
         return view('home', compact('folders'));
     }

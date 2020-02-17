@@ -40,7 +40,8 @@ class StoreBookmark extends Action
         }
 
         if ($this->create($bookmark)) {
-            return flashBack(static::MESSAGE_CREATE, 'success');
+            noty(static::MESSAGE_CREATE, 'success');
+            return redirect()->to('/');
         }
 
         return flashBackErrors($bookmark->errors());
