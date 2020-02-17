@@ -61,14 +61,6 @@
                             </li>
                         @endif
                     @else
-
-                        <li style="border: none;">
-                            <form class="form-inline mt-2 mt-md-0">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search Bookmarks"
-                                       aria-label="Search">
-                            </form>
-                        </li>
-
                         <li class="nav-item">
                             <a class="btn btn-light" href="{{ route('logout') }}"
                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
