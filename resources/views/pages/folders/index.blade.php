@@ -62,7 +62,7 @@
                 "columnDefs": [
                     {"width": "10%", "bSortable": false, "targets": -1}
                 ],
-                "order": [0, 'asc'],
+                "order": [],
             });
         </script>
     @endpush

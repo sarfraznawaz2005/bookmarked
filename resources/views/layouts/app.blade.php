@@ -37,14 +37,15 @@
                     @auth
                         <li class="nav-item">
                             <a class="btn btn-light {{activeLink('home')}} {{activeLink('bookmarks.edit')}}"
-                                                href="{{route('home', '/')}}">Bookmarks</a>
+                               href="{{route('home', '/')}}">Bookmarks</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-light {{activeLink('folders.index')}} {{activeLink('folders.edit')}}  {{activeLink('folders.bookmarks')}}"
-                                                href="{{route('folders.index')}}">Folders</a>
+                               href="{{route('folders.index')}}">Folders</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-light {{activeLink('settings')}}" href="{{route('settings')}}">Settings</a>
+                            <a class="btn btn-light {{activeLink('settings')}}"
+                               href="{{route('settings')}}">Settings</a>
                         </li>
                     @endauth
                 </ul>
@@ -61,6 +62,12 @@
                             </li>
                         @endif
                     @else
+                        <li>
+                            <a class="btn btn-outline-light" style="cursor: default;">
+                                <strong class="text-primary"><i class="fa fa-book text-primary"></i> Read: {{readPercentage()}} ({{readPagesStats()}})</strong>
+                            </a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="btn btn-light" href="{{ route('logout') }}"
                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -79,25 +86,22 @@
         </div>
     </nav>
 
-    <main class="py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
-                            </button>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+    <main class="py-4 px-4">
+        <div class="row">
+            <div class="col-md-12">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
+                        </button>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
-                    @yield('content')
-
-                </div>
+                @yield('content')
             </div>
         </div>
     </main>

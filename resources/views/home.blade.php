@@ -146,7 +146,8 @@
             @if(trim(\request()->query('url')))
                 $('[href="#create"]').tab('show');
                 $('#url').val('{{urldecode(\request()->query('url'))}}');
-                $('#url').blur();
+                $('#title').val('{{urldecode(\request()->query('title'))}}');
+                //$('#url').blur();
             @endif
 
         </script>

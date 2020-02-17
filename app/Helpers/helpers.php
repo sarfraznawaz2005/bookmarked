@@ -197,3 +197,16 @@ function normalizeChars($str)
 
     return $str;
 }
+
+function readPercentage()
+{
+    @$percent = (auth()->user()->readBookmarkCount() * 100) / auth()->user()->bookmarkCount();
+    $percent = number_format($percent, 2);
+
+    return $percent . '%';
+}
+
+function readPagesStats()
+{
+    return auth()->user()->readBookmarkCount() . '/' . auth()->user()->bookmarkCount();
+}
