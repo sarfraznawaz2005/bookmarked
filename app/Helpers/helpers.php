@@ -39,7 +39,12 @@ function getSql(Builder $builder)
 
 function badge($text)
 {
-    return "<span class='badge badge-primary' style='font-size: 13px; font-weight: bold;'>$text</span>";
+    return "<span class='badge badge-pill badge-primary'>$text</span>";
+}
+
+function label($text, $type = 'primary')
+{
+    return "<span class='badge badge-$type' style='font-size: 13px; font-weight: bold;'>$text</span>";
 }
 
 function autoBadge($text, $colorMap)
@@ -57,7 +62,7 @@ function center($text)
 function listingEditButton($link, $title = 'Edit')
 {
     $html = <<< HTML
-    <a data-placement="top" data-tooltip data-original-title="$title" style="text-decoration: none;" href="$link">
+    <a title="$title" style="text-decoration: none;" href="$link">
         <b class="btn btn-primary btn-sm fa fa-pencil"></b>
     </a>
 HTML;
@@ -81,6 +86,7 @@ function listingDeleteButton($link, $title = 'this', $showTip = true, $icon = tr
         class="confirm-delete"
         style="text-decoration: none;"
         data-label="$title"
+        title="Delete"
         href="javascript:void(0);">
             $text
         </a>

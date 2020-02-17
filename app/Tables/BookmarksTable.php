@@ -4,6 +4,7 @@ namespace App\Tables;
 
 use App\Bookmark;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
 
 class BookmarksTable extends Table
 {
@@ -56,13 +57,20 @@ class BookmarksTable extends Table
         $transformed = [];
 
         foreach ($rows as $row) {
-            $action = listingEditButton(route('folders.edit', $row['id']));
+
+            $action = $this->listingReadButton(route('folders.edit', $row['id']));
+            $action .= listingEditButton(route('folders.edit', $row['id']));
             $action .= listingDeleteButton(route('bookmarks.destroy', $row['id']), 'Bookmark');
 
-            $data['Title'] = $row['title'];
-            $data['Folder'] = $row['folder']['name'];
-            $data['Description'] = $row['description'];
-            $data['Read'] = $row['read'];
+            $data['Title'] = sprintf("<a title='$row[title]' target='_blank' href='$row[url]'>%s</a>",
+                Str::limit($row['title'], 50));
+
+            $data['Folder'] = sprintf('<a href="#">%s</a>', $row['folder']['name']);
+
+            $data['Description'] = sprintf("<span title='$row[description]'>%s</span>",
+                Str::limit($row['description'], 30));
+
+            $data['Read'] = label($row['read'], $row['read'] === 1 ? 'success' : 'warning');
             $data['Created'] = $row['created_at'];
             $data['Action'] = center($action);
 
@@ -70,5 +78,16 @@ class BookmarksTable extends Table
         }
 
         return $transformed;
+    }
+
+    protected function listingReadButton($link, $title = 'Mark Read'): string
+    {
+        $html = <<< HTML
+    <a title="$title" style="text-decoration: none;" href="$link">
+        <b class="btn btn-success btn-sm fa fa-book"></b>
+    </a>
+HTML;
+
+        return $html;
     }
 }

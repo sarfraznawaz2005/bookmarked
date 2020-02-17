@@ -19,6 +19,7 @@
 
             </div>
             <div class="card-footer">
+                <a href="{{route('folders.index')}}" class="btn btn-primary pull-left">Back</a>
                 <button type="submit" class="btn btn-success pull-right">Save</button>
             </div>
         </div>

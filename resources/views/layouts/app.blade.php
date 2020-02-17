@@ -35,11 +35,17 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     @auth
-                        <li class="nav-item"><a class="btn btn-light {{activeLink('home')}}"
-                                                href="{{route('home', '/')}}">Home</a></li>
-                        <li class="nav-item"><a class="btn btn-light {{activeLink('folders.index')}}"
-                                                href="{{route('folders.index')}}">Folders</a></li>
-                        <li class="nav-item"><a class="btn btn-light" href="/">Settings</a></li>
+                        <li class="nav-item">
+                            <a class="btn btn-light {{activeLink('home')}}"
+                                                href="{{route('home', '/')}}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-light {{activeLink('folders.index')}} {{activeLink('folders.edit')}}"
+                                                href="{{route('folders.index')}}">Folders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-light" href="/">Settings</a>
+                        </li>
                     @endauth
                 </ul>
 
