@@ -16,6 +16,7 @@ use App\Http\Actions\Folders\IndexFolder;
 use App\Http\Actions\Folders\StoreFolder;
 use App\Http\Actions\Folders\UpdateFolder;
 use App\Http\Actions\IndexHome;
+use App\Http\Actions\IndexSettings;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -45,5 +46,7 @@ Route::group(['middleware' => ['auth', 'verified']], static function () {
         Route::get('bookmarks_table', BookmarkTable::class)->name('bookmarks.table');
         Route::get('toggle_read/{bookmark}', ToggleRead::class)->name('bookmarks.toggle_read');
 
+        // settings
+        Route::get('settings', IndexSettings::class)->name('settings');
     });
 });
