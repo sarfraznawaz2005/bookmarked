@@ -7,8 +7,10 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
-class BookmarksTable extends Table
+class FolderBookmarksTable extends Table
 {
+    public $folderId = 0;
+
     /**
      * Columns to be shown in table.
      *
@@ -18,7 +20,6 @@ class BookmarksTable extends Table
     {
         return [
             'id',
-            'folder_id',
             'title',
             'description',
             'url',
@@ -44,7 +45,9 @@ class BookmarksTable extends Table
      */
     public function builder(): Builder
     {
-        return (new Bookmark())::with('folder')->where('user_id', auth()->user()->id);
+        return (new Bookmark())
+            ->where('user_id', auth()->user()->id)
+            ->where('folder_id', session('folder_id'));
     }
 
     /**
@@ -60,14 +63,10 @@ class BookmarksTable extends Table
         foreach ($rows as $row) {
 
             $action = $this->listingReadButton(route('bookmarks.toggle_read', $row['id']));
-            $action .= listingEditButton(route('bookmarks.edit', $row['id']));
             $action .= listingDeleteButton(route('bookmarks.destroy', $row['id']), 'Bookmark');
 
             $data['Title'] = sprintf("<a title='$row[title]' target='_blank' href='$row[url]'>%s</a>",
                 Str::limit($row['title'], 50));
-
-            $data['Folder'] = sprintf('<a href="%1$s">%2$s</a>', route('folders.bookmarks', $row['folder']['id']),
-                $row['folder']['name']);
 
             $data['Description'] = sprintf("<span title='$row[description]'>%s</span>",
                 Str::limit($row['description'], 30));

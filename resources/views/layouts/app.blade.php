@@ -40,7 +40,7 @@
                                                 href="{{route('home', '/')}}">Bookmarks</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-light {{activeLink('folders.index')}} {{activeLink('folders.edit')}}"
+                            <a class="btn btn-light {{activeLink('folders.index')}} {{activeLink('folders.edit')}}  {{activeLink('folders.bookmarks')}}"
                                                 href="{{route('folders.index')}}">Folders</a>
                         </li>
                         <li class="nav-item">

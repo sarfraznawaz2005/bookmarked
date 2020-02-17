@@ -9,6 +9,8 @@ use App\Http\Actions\Bookmarks\UpdateBookmark;
 use App\Http\Actions\Bookmarks\BookmarkTable;
 use App\Http\Actions\Folders\DestroyFolder;
 use App\Http\Actions\Folders\EditFolder;
+use App\Http\Actions\Folders\FolderBoomarks;
+use App\Http\Actions\Folders\FolderBoomarkTable;
 use App\Http\Actions\Folders\FolderTable;
 use App\Http\Actions\Folders\IndexFolder;
 use App\Http\Actions\Folders\StoreFolder;
@@ -31,6 +33,8 @@ Route::group(['middleware' => ['auth', 'verified']], static function () {
         Route::put('folders/{folder}', UpdateFolder::class)->name('folders.update');
         Route::delete('folders/{folder}', DestroyFolder::class)->name('folders.destroy');
         Route::get('folders_table', FolderTable::class)->name('folders.table');
+        Route::get('folders_bookmarks/{folder}', FolderBoomarks::class)->name('folders.bookmarks');
+        Route::get('folder_bookmarks_table', FolderBoomarkTable::class)->name('folders.bookmarks.table');
 
         // bookmarks
         Route::post('bookmarks', StoreBookmark::class)->name('bookmarks.store');

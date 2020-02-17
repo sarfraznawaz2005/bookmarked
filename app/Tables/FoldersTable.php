@@ -3,6 +3,7 @@
 namespace App\Tables;
 
 use App\Folder;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 
 class FoldersTable extends Table
@@ -55,9 +56,13 @@ class FoldersTable extends Table
             $action = listingEditButton(route('folders.edit', $row['id']));
             $action .= listingDeleteButton(route('folders.destroy', $row['id']), 'Folder');
 
-            $data['Name'] = sprintf('<a href="#">%s</a>', $row['name']);
+            $data['Name'] = sprintf('<a href="%1$s">%2$s</a>', route('folders.bookmarks', $row['id']), $row['name']);
+
             $data['Bookmarks'] = badge(count($row['bookmarks']));
-            $data['Created'] = $row['created_at'];
+
+            $data['Created'] = sprintf("<span title='$row[created_at]'>%s</span>",
+                Carbon::parse($row['created_at'])->diffForHumans());
+
             $data['Action'] = center($action);
 
             $transformed[] = $data;
