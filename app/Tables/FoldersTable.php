@@ -70,4 +70,14 @@ class FoldersTable extends Table
 
         return $transformed;
     }
+
+    /**
+     * Gets order field with key being field name and value being direction.
+     *
+     * @return array
+     */
+    public function orderField(): array
+    {
+        return ['name' => 'asc'];
+    }
 }

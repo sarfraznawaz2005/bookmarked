@@ -35,6 +35,13 @@ abstract class Table
     abstract public function builder(): Builder;
 
     /**
+     * Gets order field with key being field name and value being direction.
+     *
+     * @return array
+     */
+    abstract public function orderField(): array;
+
+    /**
      * Returns data for DataTable
      *
      * @return array
@@ -77,6 +84,10 @@ abstract class Table
             }
 
             $builder->orderBy($columns[$orderColumn], $dir);
+        } else {
+            $orderInfo = $this->orderField();
+
+            $builder->orderBy(array_keys($orderInfo)[0], array_values($orderInfo)[0]);
         }
 
         //dd(getSql($builder));
