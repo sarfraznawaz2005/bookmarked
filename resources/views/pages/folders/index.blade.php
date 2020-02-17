@@ -60,7 +60,7 @@
                 {data: 'Action'}
             ], {
                 "columnDefs": [
-                    {"width": "10%", "bSortable": false, "targets": -1}
+                    {"width": "7%", "bSortable": false, "targets": -1}
                 ],
                 "order": [],
             });

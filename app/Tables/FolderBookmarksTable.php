@@ -66,7 +66,7 @@ class FolderBookmarksTable extends Table
             $action .= listingDeleteButton(route('bookmarks.destroy', $row['id']), 'Bookmark');
 
             $data['Title'] = sprintf("<a title='$row[title]' target='_blank' href='$row[url]'>%s</a>",
-                Str::limit($row['title'], 70));
+                Str::limit($row['title'], 80));
 
             $data['Description'] = sprintf("<span title='$row[description]'>%s</span>",
                 Str::limit($row['description'], 30));

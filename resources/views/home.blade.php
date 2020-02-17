@@ -108,7 +108,7 @@
                 {data: 'Action'}
             ], {
                 "columnDefs": [
-                    {"width": "15%", "bSortable": false, "targets": -1},
+                    {"width": "10%", "bSortable": false, "targets": -1},
                     {"width": "20%", "targets": -2}
                 ],
                 "order": [],
