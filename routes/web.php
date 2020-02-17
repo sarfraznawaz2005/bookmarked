@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Actions\Bookmarks\DestroyBookmark;
+use App\Http\Actions\Bookmarks\EditBookmark;
 use App\Http\Actions\Bookmarks\GetUrlTitle;
 use App\Http\Actions\Bookmarks\StoreBookmark;
+use App\Http\Actions\Bookmarks\ToggleRead;
 use App\Http\Actions\Bookmarks\UpdateBookmark;
 use App\Http\Actions\Bookmarks\BookmarkTable;
 use App\Http\Actions\Folders\DestroyFolder;
@@ -28,14 +30,16 @@ Route::group(['middleware' => ['auth', 'verified']], static function () {
         Route::get('folders/{folder}', EditFolder::class)->name('folders.edit');
         Route::put('folders/{folder}', UpdateFolder::class)->name('folders.update');
         Route::delete('folders/{folder}', DestroyFolder::class)->name('folders.destroy');
-        Route::get('folders_table', FolderTable::class )->name('folders.table');
+        Route::get('folders_table', FolderTable::class)->name('folders.table');
 
         // bookmarks
         Route::post('bookmarks', StoreBookmark::class)->name('bookmarks.store');
+        Route::get('bookmarks/{bookmark}', EditBookmark::class)->name('bookmarks.edit');
         Route::put('bookmarks/{bookmark}', UpdateBookmark::class)->name('bookmarks.update');
         Route::delete('bookmarks/{bookmark}', DestroyBookmark::class)->name('bookmarks.destroy');
         Route::get('get_url_title', GetUrlTitle::class)->name('bookmarks.get.title');
-        Route::get('bookmarks_table', BookmarkTable::class )->name('bookmarks.table');
+        Route::get('bookmarks_table', BookmarkTable::class)->name('bookmarks.table');
+        Route::get('toggle_read/{bookmark}', ToggleRead::class)->name('bookmarks.toggle_read');
 
     });
 });

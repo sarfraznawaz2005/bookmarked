@@ -19,13 +19,12 @@
         <div class="card-body">
             <div class="tab-content">
                 <div class="tab-pane active" id="list">
-                    <table class="table-responsive-sm table table-hover mx-auto w-100">
+                    <table class="table-responsive-sm table table-bordered mx-auto w-100">
                         <thead>
                         <tr>
                             <th>Title</th>
                             <th>Folder</th>
                             <th>Description</th>
-                            <th>Read</th>
                             <th>Created</th>
                             <th>Action</th>
                         </tr>
@@ -105,15 +104,21 @@
                 {data: 'Title'},
                 {data: 'Folder'},
                 {data: 'Description'},
-                {data: 'Read'},
                 {data: 'Created'},
                 {data: 'Action'}
             ], {
                 "columnDefs": [
-                    {"width": "10%", "bSortable": false, "targets": -1},
+                    {"width": "15%", "bSortable": false, "targets": -1},
                     {"width": "20%", "targets": -2}
                 ],
-                "order": [0, 'asc'],
+                "order": [3, 'asc'],
+                "rowCallback": function (row, data) {
+                    var $read = $('<div/>').html(data.Read);
+
+                    if ($read.text() === '1') {
+                        $(row).addClass('read');
+                    }
+                }
             });
 
             $('#url').blur(function () {

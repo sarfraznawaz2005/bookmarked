@@ -36,8 +36,8 @@
                 <ul class="navbar-nav mr-auto">
                     @auth
                         <li class="nav-item">
-                            <a class="btn btn-light {{activeLink('home')}}"
-                                                href="{{route('home', '/')}}">Home</a>
+                            <a class="btn btn-light {{activeLink('home')}} {{activeLink('bookmarks.edit')}}"
+                                                href="{{route('home', '/')}}">Bookmarks</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-light {{activeLink('folders.index')}} {{activeLink('folders.edit')}}"

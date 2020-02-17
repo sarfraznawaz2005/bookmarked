@@ -56,11 +56,6 @@ ol, ul, dl {
 .table th, .table td {
     padding: 0.40rem !important;
     vertical-align: middle !important;
-    border-top: 1px solid #dee2e6 !important;
-}
-
-.table-hover tbody tr {
-    background-color: #fff !important;
 }
 
 .table-hover tbody tr:hover {
@@ -72,4 +67,8 @@ ol, ul, dl {
     color: #212529;
     position: absolute !important;
     top: 1% !important;
+}
+
+.read {
+    background-color: #dff0d8 !important;
 }

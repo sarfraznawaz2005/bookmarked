@@ -19,7 +19,7 @@
         <div class="card-body">
             <div class="tab-content">
                 <div class="tab-pane active preview" id="list">
-                    <table class="table-responsive-sm table table-hover mx-auto w-100">
+                    <table class="table-responsive-sm table table-bordered mx-auto w-100">
                         <thead>
                         <tr>
                             <th>Name</th>

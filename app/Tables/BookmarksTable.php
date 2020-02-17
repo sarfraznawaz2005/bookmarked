@@ -58,8 +58,8 @@ class BookmarksTable extends Table
 
         foreach ($rows as $row) {
 
-            $action = $this->listingReadButton(route('folders.edit', $row['id']));
-            $action .= listingEditButton(route('folders.edit', $row['id']));
+            $action = $this->listingReadButton(route('bookmarks.toggle_read', $row['id']));
+            $action .= listingEditButton(route('bookmarks.edit', $row['id']));
             $action .= listingDeleteButton(route('bookmarks.destroy', $row['id']), 'Bookmark');
 
             $data['Title'] = sprintf("<a title='$row[title]' target='_blank' href='$row[url]'>%s</a>",
@@ -80,7 +80,7 @@ class BookmarksTable extends Table
         return $transformed;
     }
 
-    protected function listingReadButton($link, $title = 'Mark Read'): string
+    protected function listingReadButton($link, $title = 'Toggle Read'): string
     {
         $html = <<< HTML
     <a title="$title" style="text-decoration: none;" href="$link">

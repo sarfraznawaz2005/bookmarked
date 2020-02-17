@@ -55,7 +55,7 @@ class FoldersTable extends Table
             $action = listingEditButton(route('folders.edit', $row['id']));
             $action .= listingDeleteButton(route('folders.destroy', $row['id']), 'Folder');
 
-            $data['Name'] = $row['name'];
+            $data['Name'] = sprintf('<a href="#">%s</a>', $row['name']);
             $data['Bookmarks'] = badge(count($row['bookmarks']));
             $data['Created'] = $row['created_at'];
             $data['Action'] = center($action);
