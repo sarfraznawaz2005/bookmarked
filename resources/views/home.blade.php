@@ -122,8 +122,10 @@
             });
 
             $('#url').blur(function () {
-                var url = $(this).val();
+                getTitle($(this).val());
+            });
 
+            function getTitle(url) {
                 if (!url.length) {
                     return false;
                 }
@@ -138,8 +140,17 @@
                         $('#title').val(title);
                     }
                 });
-            });
+            }
+
+            // via bookmarklet
+            @if(trim(\request()->query('url')))
+                $('[href="#create"]').tab('show');
+                $('#url').val('{{urldecode(\request()->query('url'))}}');
+                $('#url').blur();
+            @endif
+
         </script>
+
     @endpush
 
 @endsection

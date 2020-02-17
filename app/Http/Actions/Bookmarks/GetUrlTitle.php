@@ -24,5 +24,7 @@ class GetUrlTitle extends Action
         if ($title) {
             return normalizTitle($title);
         }
+
+        return $title;
     }
 }
