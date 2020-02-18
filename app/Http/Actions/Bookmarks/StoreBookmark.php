@@ -50,7 +50,7 @@ class StoreBookmark extends Action
     public function isBookmarked(): bool
     {
         $bookmark = Bookmark
-            ::where('url', \request()->url)
+            ::where('url', rtrim(\request()->url, '/'))
             ->where('user_id', \request()->user()->id)
             ->first();
 
