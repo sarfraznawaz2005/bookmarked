@@ -19,7 +19,7 @@
 
 <div id="app">
 
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <i class="fa fa-bookmark"></i> {{ config('app.name', 'Laravel') }}
