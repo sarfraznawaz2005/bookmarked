@@ -98,9 +98,12 @@ HTML;
 
 function normalizTitle($title)
 {
+    $title = trim($title);
+    $title = preg_replace('/\s+/', ' ',$title);
     $title = normalizeChars($title);
     $title = html_entity_decode($title);
-    $title = preg_replace("/[^a-zA-Z0-9_ ]+/", '', $title);
+    $title = preg_replace("/[^a-zA-Z0-9_\- ]+/", '', $title);
+    $title = ucwords($title);
 
     return Str::limit($title);
 }
@@ -185,6 +188,7 @@ function normalizeChars($str)
         '�' => 'b',
         '�' => 'y'
     );
+
     $str = strtr($str, $unwanted_array);
 
     # Bullets, dashes, and trademarks
