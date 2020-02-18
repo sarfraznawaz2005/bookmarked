@@ -80,7 +80,7 @@ abstract class Table
 
         if ($orderColumn !== null) {
             if ($columns[$orderColumn] === 'id') {
-                $orderColumn++;
+                //$orderColumn++;
             }
 
             $builder->orderBy($columns[$orderColumn], $dir);

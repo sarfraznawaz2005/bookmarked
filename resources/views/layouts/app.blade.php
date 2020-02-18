@@ -37,15 +37,15 @@
                     @auth
                         <li class="nav-item">
                             <a class="btn btn-light {{activeLink('home')}} {{activeLink('bookmarks.edit')}}"
-                               href="{{route('home', '/')}}">Bookmarks</a>
+                               href="{{route('home', '/')}}"><i class="fa fa-home"></i> Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-light {{activeLink('folders.index')}} {{activeLink('folders.edit')}}  {{activeLink('folders.bookmarks')}}"
-                               href="{{route('folders.index')}}">Folders</a>
+                               href="{{route('folders.index')}}"><i class="fa fa-folder"></i> Folders</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-light {{activeLink('settings')}}"
-                               href="{{route('settings')}}">Settings</a>
+                               href="{{route('settings')}}"><i class="fa fa-cog"></i> Settings</a>
                         </li>
                     @endauth
                 </ul>

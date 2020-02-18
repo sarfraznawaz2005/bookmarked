@@ -15,7 +15,7 @@ function table(tableSelector, url, length, columns, extraOptions, data) {
         "processing": true,
         "responsive": true,
         "autoWidth": true,
-        "ordering": true,
+        "ordering": false,
         "lengthChange": false,
         "pageLength": length,
         "ajax": {
