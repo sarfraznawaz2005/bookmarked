@@ -58,7 +58,8 @@ class FoldersTable extends Table
 
             $data['Name'] = sprintf('<a href="%1$s">%2$s</a>', route('folders.bookmarks', $row['id']), $row['name']);
 
-            $data['Bookmarks'] = badge(count($row['bookmarks']));
+            $count = count($row['bookmarks']);
+            $data['Bookmarks'] = " <div class='progress'><div class='progress-bar bg-success' role='progressbar' style='width: $count%; font-weight: bold;'>$count</div></div>";
 
             $data['Created'] = sprintf("<span title='$row[created_at]'>%s</span>",
                 Carbon::parse($row['created_at'])->diffForHumans());
