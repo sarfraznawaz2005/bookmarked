@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
+        "animate.css": "^3.7.2",
         "buttondisabler": "^1.0.9",
         "datatables.net": "^1.10.20",
         "datatables.net-bs4": "^1.10.20",

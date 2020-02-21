@@ -15,7 +15,7 @@
 
     @stack('css')
 </head>
-<body>
+<body class="animated fadeIn">
 
 <div id="app">
 
